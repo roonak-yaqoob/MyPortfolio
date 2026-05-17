@@ -1,0 +1,439 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Roonak Yaqoob | Automotive Test Engineer Portfolio</title> 
+    <style> 
+        :root { 
+            --bg-color: #0f172a; 
+            --card-bg: #1e293b; 
+            --accent-color: #38bdf8; 
+            --text-main: #f8fafc; 
+            --text-muted: #94a3b8; 
+            --border-color: #334155; 
+        } 
+ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            scroll-behavior: smooth; 
+        } 
+ 
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+        } 
+ 
+        header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background-color: rgba(15, 23, 42, 0.9); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--border-color); 
+            z-index: 1000; 
+        } 
+ 
+        .nav-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1.2rem 2rem; 
+        } 
+ 
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--accent-color); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        } 
+ 
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        } 
+ 
+        .nav-links a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: color 0.3s; 
+        } 
+ 
+        .nav-links a:hover { 
+            color: var(--accent-color); 
+        } 
+ 
+        section { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 6rem 2rem 4rem 2rem; 
+        } 
+ 
+        .hero-section { 
+            min-height: 85vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: flex-start; 
+        } 
+ 
+        .hero-title { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.2; 
+        } 
+ 
+        .hero-subtitle { 
+            font-size: 1.8rem; 
+            color: var(--accent-color); 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+        } 
+ 
+        .hero-summary { 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            max-width: 800px; 
+            margin-bottom: 2rem; 
+        } 
+ 
+        .contact-pill-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 1rem; 
+            margin-bottom: 2.5rem; 
+        } 
+ 
+        .contact-pill { 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            border-radius: 50px; 
+            font-size: 0.9rem; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            transition: border-color 0.3s; 
+        } 
+ 
+        .contact-pill:hover { 
+            border-color: var(--accent-color); 
+        } 
+ 
+        .section-title { 
+            font-size: 2rem; 
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            position: relative; 
+            padding-bottom: 0.5rem; 
+        } 
+ 
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: 0; 
+            width: 50px; 
+            height: 4px; 
+            background-color: var(--accent-color); 
+            border-radius: 2px; 
+        } 
+ 
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        } 
+ 
+        .card { 
+            background-color: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 8px; 
+            padding: 2rem; 
+            transition: transform 0.3s, border-color 0.3s; 
+        } 
+ 
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent-color); 
+        } 
+ 
+        .experience-timeline { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2.5rem; 
+        } 
+ 
+        .timeline-item { 
+            border-left: 3px solid var(--border-color); 
+            padding-left: 1.5rem; 
+            position: relative; 
+        } 
+ 
+        .timeline-item::before { 
+            content: ''; 
+            position: absolute; 
+            left: -8px; 
+            top: 4px; 
+            width: 13px; 
+            height: 13px; 
+            background-color: var(--accent-color); 
+            border-radius: 50%; 
+        } 
+ 
+        .job-title { 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        } 
+ 
+        .company-info { 
+            color: var(--accent-color); 
+            font-weight: 500; 
+            margin-bottom: 0.5rem; 
+        } 
+ 
+        .job-details { 
+            list-style-type: square; 
+            margin-left: 1.2rem; 
+            color: var(--text-muted); 
+        } 
+ 
+        .job-details li { 
+            margin-bottom: 0.5rem; 
+        } 
+ 
+        .skills-category { 
+            margin-bottom: 1.5rem; 
+        } 
+ 
+        .skills-category h4 { 
+            color: var(--accent-color); 
+            margin-bottom: 0.8rem; 
+            font-size: 1.1rem; 
+        } 
+ 
+        .tag-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 0.8rem; 
+        } 
+ 
+        .tag { 
+            background-color: rgba(56, 189, 248, 0.1); 
+            color: var(--accent-color); 
+            padding: 0.4rem 0.9rem; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            border: 1px solid rgba(56, 189, 248, 0.2); 
+        } 
+ 
+        footer { 
+            background-color: #0b0f19; 
+            text-align: center; 
+            padding: 2rem; 
+            margin-top: 4rem; 
+            border-top: 1px solid var(--border-color); 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+        } 
+ 
+        @media (max-width: 768px) { 
+            .hero-title { font-size: 2.5rem; } 
+            .nav-links { display: none; } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <header> 
+        <nav class="nav-container"> 
+            <div class="logo">RY</div> 
+            <ul class="nav-links"> 
+                <li><a href="#about">About</a></li> 
+                <li><a href="#experience">Experience</a></li> 
+                <li><a href="#skills">Skills</a></li> 
+                <li><a href="#projects">Projects</a></li> 
+                <li><a href="#education">Education</a></li> 
+            </ul> 
+        </nav> 
+    </header> 
+ 
+    <main> 
+        <!-- HERO / ABOUT SECTION --> 
+        <section id="about" class="hero-section"> 
+            <h1 class="hero-title">Roonak Yaqoob</h1> 
+            <div class="hero-subtitle">Automotive Test Engineer</div> 
+             
+            <div class="contact-pill-container"> 
+                <span class="contact-pill">📍 Bengaluru, India</span> 
+                <a href="mailto:roonakyaqoob@gmail.com" class="contact-pill">📧 roonakyaqoob@gmail.com</a> 
+                 
+            </div> 
+ 
+            <p class="hero-summary"> 
+                Highly motivated and analytical Test Engineer with hands-on experience in both manual and automated testing, comprehensive system requirement analysis, and efficient defect resolution. Proficient in industry-standard testing and analysis tools including CANoe, CANalyzer, Corvus, and Wireshark, with strong expertise in Modules like DBCs acceptance, TR-SSC, LIN-IAL, and HIL testing, including Failure of Part 2 diagnostics. Eager to leverage strong technical skills and a proactive approach to contribute to innovative projects and enhance product quality in an Automotive domain. 
+            </p> 
+        </section> 
+ 
+        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
+ 
+        <!-- EXPERIENCE SECTION --> 
+        <section id="experience"> 
+            <h2 class="section-title">Professional Experience</h2> 
+            <div class="experience-timeline"> 
+                 
+                <div class="timeline-item"> 
+                    <div class="job-title">Test Engineer (Grade B Engineer)</div> 
+                    <div class="company-info">KPIT Technologies Ltd., Bengaluru | July 2024 - PRESENT</div> 
+                    <ul class="job-details"> 
+                        <li>Analyzed complex system requirements to design comprehensive test cases, ensuring robust coverage of features and functionalities for the automotive domain.</li> 
+                        <li>Worked on validation and testing of modules including DBCs acceptance, TR-SSC, LIN-IAL, and HIL testing, with hands-on experience in Failure of Part 2 diagnostics.</li> 
+                        <li>Good understanding of Automotive ECUs and features (Cyber ECU, Non-Cyber ECU, MLA-BEV ECU etc).</li> 
+                        <li>Strong Expertise in Test Automation with Python.</li> 
+                        <li>Knowledge of automotive communication protocols such as CAN, LIN, Flexray, and Ethernet.</li> 
+                        <li>Gained practical experience working with advanced Hardware-in-the-Loop (HIL) setups, including Automation-Desk, Control Desk, and Dspace, for real-time system validation and simulation.</li> 
+                        <li>Experience with Debugger Trace 32 and tools like Vector CANeo, WireShark.</li> 
+                        <li>Experience with automotive diagnostics: OBD, UDS, DoIP; familiarity with tools such as CANanalyzer and CANape.</li> 
+                        <li>Experience in network node simulation using CAPL (CANeo).</li> 
+                        <li>Knowledge of automotive test process and tools for requirement management (TRM), Planning (JIRA) and version control (Git/SVN).</li> 
+                    </ul> 
+                </div> 
+ 
+                <div class="timeline-item"> 
+                    <div class="job-title">Intern</div> 
+                    <div class="company-info">KPIT Technologies Ltd, Pune | January 2024 - June 2024</div> 
+                    <ul class="job-details"> 
+                        <li>Developed strong proficiency in MATLAB tools, including Simulink and Stateflow, applying theoretical knowledge to practical applications in control system design.</li> 
+                        <li>Successfully implemented real-world projects such as Cruise Control, Aircraft Control Systems, and Automotive Suspension Systems, demonstrating strong application of engineering principles and software development.</li> 
+                        <li>Enhanced professional capabilities through dedicated Personal Skill Development sessions, focusing on presentation skills and critical thinking, improving overall workplace readiness.</li> 
+                        <li>Consistently achieved high scores in KPIT assessments across multiple technical modules, showcasing rapid learning and retention of complex concepts.</li> 
+                    </ul> 
+                </div> 
+ 
+            </div> 
+        </section> 
+ 
+        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
+ 
+        <!-- SKILLS SECTION --> 
+        <section id="skills"> 
+            <h2 class="section-title">Skills & Proficiencies</h2> 
+            <div class="grid-layout"> 
+                <div class="card"> 
+                    <div class="skills-category"> 
+                        <h4>Protocols</h4> 
+                        <div class="tag-container"> 
+                            <span class="tag">CAN</span><span class="tag">LIN</span> 
+                            <span class="tag">FlexRay</span><span class="tag">Ethernet</span> 
+                            <span class="tag">UDS</span> 
+                        </div> 
+                    </div> 
+                    <div class="skills-category"> 
+                        <h4>Tools</h4> 
+                        <div class="tag-container"> 
+                            <span class="tag">CANape</span><span class="tag">CANoe</span> 
+                            <span class="tag">CANanalyzer</span><span class="tag">Corvus</span> 
+                            <span class="tag">WireShark</span><span class="tag">Trace 32</span> 
+                            <span class="tag">Automation-Desk</span><span class="tag">Control Desk</span> 
+                            <span class="tag">Dspace</span><span class="tag">MATLAB</span> 
+                            <span class="tag">Git</span> 
+                        </div> 
+                    </div> 
+                </div> 
+ 
+                <div class="card"> 
+                    <div class="skills-category"> 
+                        <h4>Methodologies & Concepts</h4> 
+                        <div class="tag-container"> 
+                            <span class="tag">Model-Based Design</span><span class="tag">Agile</span> 
+                            <span class="tag">Gherkins</span><span class="tag">Test Case Design</span> 
+                            <span class="tag">ECU & Gateway</span><span class="tag">Autosar</span> 
+                            <span class="tag">Embedded Systems</span><span class="tag">HIL Testing</span> 
+                        </div> 
+                    </div> 
+                    <div class="skills-category"> 
+                        <h4>Soft Skills</h4> 
+                        <div class="tag-container"> 
+                            <span class="tag">Communication</span><span class="tag">Collaboration</span> 
+                            <span class="tag">Analytical Thinking</span><span class="tag">Problem-Solving</span> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+ 
+        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
+ 
+        <!-- PROJECTS SECTION --> 
+        <section id="projects"> 
+            <h2 class="section-title">Academic & Engineering Projects</h2> 
+            <div class="grid-layout"> 
+                 
+                <div class="card"> 
+                    <h3 style="margin-bottom: 0.5rem;">Gym Equipment Electricity Generation System</h3> 
+                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
+                        Developed a system utilizing piezoelectric sensors and microcontrollers to convert gym equipment movements into usable electricity, showcasing principles of energy harvesting and sustainable technology. 
+                    </p> 
+                </div> 
+ 
+                <div class="card"> 
+                    <h3 style="margin-bottom: 0.5rem;">IoT-based Smart Cart</h3> 
+                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
+                        Designed and implemented an Internet of Things (IoT)-based smart shopping cart for enhanced shopping and automated checkout, integrating RFID, weight sensors, and a custom mobile application for real-time inventory and billing. 
+                    </p> 
+                </div> 
+ 
+                <div class="card"> 
+                    <h3 style="margin-bottom: 0.5rem;">1-bit Full Adder using GDI Technique</h3> 
+                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
+                        Implemented a 1-bit full adder using the Gate Diffusion Input (GDI) technique, showcasing expertise in efficient logic design, power optimization, and circuit simulation. 
+                    </p> 
+                </div> 
+ 
+            </div> 
+        </section> 
+ 
+        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
+ 
+        <!-- EDUCATION & CERTIFICATIONS SECTION --> 
+        <section id="education" style="padding-bottom: 6rem;"> 
+            <h2 class="section-title">Education & Credentials</h2> 
+            <div class="grid-layout"> 
+                <div class="card"> 
+                    <span style="color: var(--accent-color); font-weight: 600;">2020 - 2024</span> 
+                    <h3 style="margin: 0.3rem 0;">B.Tech in Electronics & Communication</h3> 
+                    <p style="color: var(--text-muted);">Chandigarh University, Punjab<br><strong>CGPA: 8.30</strong></p> 
+                </div> 
+ 
+                <div class="card"> 
+                    <span style="color: var(--accent-color); font-weight: 600;">Class of 2019</span> 
+                    <h3 style="margin: 0.3rem 0;">12th Standard (PCM)</h3> 
+                    <p style="color: var(--text-muted);">Jehlum Education Trust, Jammu & Kashmir<br><strong>Percentage: 84%</strong></p> 
+                </div> 
+ 
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; border-color: rgba(56, 189, 248, 0.4);"> 
+                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">Certifications</h3> 
+                    <p style="font-weight: 600;">Genesis Training Certification</p> 
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">KPIT Technologies • May 2024</p> 
+                </div> 
+            </div> 
+        </section> 
+    </main> 
+ 
+    <footer> 
+        <p>&copy; 2026 Roonak Yaqoob. Built with precision for the Automotive Domain.</p> 
+    </footer> 
+ 
+</body> 
+</html> 
+ 
