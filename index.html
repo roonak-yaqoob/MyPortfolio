@@ -1,439 +1,867 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Roonak Yaqoob | Automotive Test Engineer Portfolio</title> 
-    <style> 
-        :root { 
-            --bg-color: #0f172a; 
-            --card-bg: #1e293b; 
-            --accent-color: #38bdf8; 
-            --text-main: #f8fafc; 
-            --text-muted: #94a3b8; 
-            --border-color: #334155; 
-        } 
- 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            scroll-behavior: smooth; 
-        } 
- 
-        body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            line-height: 1.6; 
-        } 
- 
-        header { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background-color: rgba(15, 23, 42, 0.9); 
-            backdrop-filter: blur(10px); 
-            border-bottom: 1px solid var(--border-color); 
-            z-index: 1000; 
-        } 
- 
-        .nav-container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.2rem 2rem; 
-        } 
- 
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-            color: var(--accent-color); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        } 
- 
-        .nav-links { 
-            display: flex; 
-            list-style: none; 
-            gap: 2rem; 
-        } 
- 
-        .nav-links a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            font-weight: 500; 
-            transition: color 0.3s; 
-        } 
- 
-        .nav-links a:hover { 
-            color: var(--accent-color); 
-        } 
- 
-        section { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 6rem 2rem 4rem 2rem; 
-        } 
- 
-        .hero-section { 
-            min-height: 85vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: flex-start; 
-        } 
- 
-        .hero-title { 
-            font-size: 3.5rem; 
-            font-weight: 800; 
-            margin-bottom: 0.5rem; 
-            line-height: 1.2; 
-        } 
- 
-        .hero-subtitle { 
-            font-size: 1.8rem; 
-            color: var(--accent-color); 
-            margin-bottom: 1.5rem; 
-            font-weight: 600; 
-        } 
- 
-        .hero-summary { 
-            font-size: 1.1rem; 
-            color: var(--text-muted); 
-            max-width: 800px; 
-            margin-bottom: 2rem; 
-        } 
- 
-        .contact-pill-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 1rem; 
-            margin-bottom: 2.5rem; 
-        } 
- 
-        .contact-pill { 
-            background-color: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            padding: 0.5rem 1rem; 
-            border-radius: 50px; 
-            font-size: 0.9rem; 
-            color: var(--text-main); 
-            text-decoration: none; 
-            transition: border-color 0.3s; 
-        } 
- 
-        .contact-pill:hover { 
-            border-color: var(--accent-color); 
-        } 
- 
-        .section-title { 
-            font-size: 2rem; 
-            font-weight: 700; 
-            margin-bottom: 2rem; 
-            position: relative; 
-            padding-bottom: 0.5rem; 
-        } 
- 
-        .section-title::after { 
-            content: ''; 
-            position: absolute; 
-            left: 0; 
-            bottom: 0; 
-            width: 50px; 
-            height: 4px; 
-            background-color: var(--accent-color); 
-            border-radius: 2px; 
-        } 
- 
-        .grid-layout { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem; 
-        } 
- 
-        .card { 
-            background-color: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            padding: 2rem; 
-            transition: transform 0.3s, border-color 0.3s; 
-        } 
- 
-        .card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--accent-color); 
-        } 
- 
-        .experience-timeline { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 2.5rem; 
-        } 
- 
-        .timeline-item { 
-            border-left: 3px solid var(--border-color); 
-            padding-left: 1.5rem; 
-            position: relative; 
-        } 
- 
-        .timeline-item::before { 
-            content: ''; 
-            position: absolute; 
-            left: -8px; 
-            top: 4px; 
-            width: 13px; 
-            height: 13px; 
-            background-color: var(--accent-color); 
-            border-radius: 50%; 
-        } 
- 
-        .job-title { 
-            font-size: 1.3rem; 
-            font-weight: 600; 
-        } 
- 
-        .company-info { 
-            color: var(--accent-color); 
-            font-weight: 500; 
-            margin-bottom: 0.5rem; 
-        } 
- 
-        .job-details { 
-            list-style-type: square; 
-            margin-left: 1.2rem; 
-            color: var(--text-muted); 
-        } 
- 
-        .job-details li { 
-            margin-bottom: 0.5rem; 
-        } 
- 
-        .skills-category { 
-            margin-bottom: 1.5rem; 
-        } 
- 
-        .skills-category h4 { 
-            color: var(--accent-color); 
-            margin-bottom: 0.8rem; 
-            font-size: 1.1rem; 
-        } 
- 
-        .tag-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 0.8rem; 
-        } 
- 
-        .tag { 
-            background-color: rgba(56, 189, 248, 0.1); 
-            color: var(--accent-color); 
-            padding: 0.4rem 0.9rem; 
-            border-radius: 4px; 
-            font-size: 0.85rem; 
-            font-weight: 500; 
-            border: 1px solid rgba(56, 189, 248, 0.2); 
-        } 
- 
-        footer { 
-            background-color: #0b0f19; 
-            text-align: center; 
-            padding: 2rem; 
-            margin-top: 4rem; 
-            border-top: 1px solid var(--border-color); 
-            color: var(--text-muted); 
-            font-size: 0.9rem; 
-        } 
- 
-        @media (max-width: 768px) { 
-            .hero-title { font-size: 2.5rem; } 
-            .nav-links { display: none; } 
-        } 
-    </style> 
-</head> 
-<body> 
- 
-    <header> 
-        <nav class="nav-container"> 
-            <div class="logo">RY</div> 
-            <ul class="nav-links"> 
-                <li><a href="#about">About</a></li> 
-                <li><a href="#experience">Experience</a></li> 
-                <li><a href="#skills">Skills</a></li> 
-                <li><a href="#projects">Projects</a></li> 
-                <li><a href="#education">Education</a></li> 
-            </ul> 
-        </nav> 
-    </header> 
- 
-    <main> 
-        <!-- HERO / ABOUT SECTION --> 
-        <section id="about" class="hero-section"> 
-            <h1 class="hero-title">Roonak Yaqoob</h1> 
-            <div class="hero-subtitle">Automotive Test Engineer</div> 
-             
-            <div class="contact-pill-container"> 
-                <span class="contact-pill">📍 Bengaluru, India</span> 
-                <a href="mailto:roonakyaqoob@gmail.com" class="contact-pill">📧 roonakyaqoob@gmail.com</a> 
-                 
-            </div> 
- 
-            <p class="hero-summary"> 
-                Highly motivated and analytical Test Engineer with hands-on experience in both manual and automated testing, comprehensive system requirement analysis, and efficient defect resolution. Proficient in industry-standard testing and analysis tools including CANoe, CANalyzer, Corvus, and Wireshark, with strong expertise in Modules like DBCs acceptance, TR-SSC, LIN-IAL, and HIL testing, including Failure of Part 2 diagnostics. Eager to leverage strong technical skills and a proactive approach to contribute to innovative projects and enhance product quality in an Automotive domain. 
-            </p> 
-        </section> 
- 
-        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
- 
-        <!-- EXPERIENCE SECTION --> 
-        <section id="experience"> 
-            <h2 class="section-title">Professional Experience</h2> 
-            <div class="experience-timeline"> 
-                 
-                <div class="timeline-item"> 
-                    <div class="job-title">Test Engineer (Grade B Engineer)</div> 
-                    <div class="company-info">KPIT Technologies Ltd., Bengaluru | July 2024 - PRESENT</div> 
-                    <ul class="job-details"> 
-                        <li>Analyzed complex system requirements to design comprehensive test cases, ensuring robust coverage of features and functionalities for the automotive domain.</li> 
-                        <li>Worked on validation and testing of modules including DBCs acceptance, TR-SSC, LIN-IAL, and HIL testing, with hands-on experience in Failure of Part 2 diagnostics.</li> 
-                        <li>Good understanding of Automotive ECUs and features (Cyber ECU, Non-Cyber ECU, MLA-BEV ECU etc).</li> 
-                        <li>Strong Expertise in Test Automation with Python.</li> 
-                        <li>Knowledge of automotive communication protocols such as CAN, LIN, Flexray, and Ethernet.</li> 
-                        <li>Gained practical experience working with advanced Hardware-in-the-Loop (HIL) setups, including Automation-Desk, Control Desk, and Dspace, for real-time system validation and simulation.</li> 
-                        <li>Experience with Debugger Trace 32 and tools like Vector CANeo, WireShark.</li> 
-                        <li>Experience with automotive diagnostics: OBD, UDS, DoIP; familiarity with tools such as CANanalyzer and CANape.</li> 
-                        <li>Experience in network node simulation using CAPL (CANeo).</li> 
-                        <li>Knowledge of automotive test process and tools for requirement management (TRM), Planning (JIRA) and version control (Git/SVN).</li> 
-                    </ul> 
-                </div> 
- 
-                <div class="timeline-item"> 
-                    <div class="job-title">Intern</div> 
-                    <div class="company-info">KPIT Technologies Ltd, Pune | January 2024 - June 2024</div> 
-                    <ul class="job-details"> 
-                        <li>Developed strong proficiency in MATLAB tools, including Simulink and Stateflow, applying theoretical knowledge to practical applications in control system design.</li> 
-                        <li>Successfully implemented real-world projects such as Cruise Control, Aircraft Control Systems, and Automotive Suspension Systems, demonstrating strong application of engineering principles and software development.</li> 
-                        <li>Enhanced professional capabilities through dedicated Personal Skill Development sessions, focusing on presentation skills and critical thinking, improving overall workplace readiness.</li> 
-                        <li>Consistently achieved high scores in KPIT assessments across multiple technical modules, showcasing rapid learning and retention of complex concepts.</li> 
-                    </ul> 
-                </div> 
- 
-            </div> 
-        </section> 
- 
-        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
- 
-        <!-- SKILLS SECTION --> 
-        <section id="skills"> 
-            <h2 class="section-title">Skills & Proficiencies</h2> 
-            <div class="grid-layout"> 
-                <div class="card"> 
-                    <div class="skills-category"> 
-                        <h4>Protocols</h4> 
-                        <div class="tag-container"> 
-                            <span class="tag">CAN</span><span class="tag">LIN</span> 
-                            <span class="tag">FlexRay</span><span class="tag">Ethernet</span> 
-                            <span class="tag">UDS</span> 
-                        </div> 
-                    </div> 
-                    <div class="skills-category"> 
-                        <h4>Tools</h4> 
-                        <div class="tag-container"> 
-                            <span class="tag">CANape</span><span class="tag">CANoe</span> 
-                            <span class="tag">CANanalyzer</span><span class="tag">Corvus</span> 
-                            <span class="tag">WireShark</span><span class="tag">Trace 32</span> 
-                            <span class="tag">Automation-Desk</span><span class="tag">Control Desk</span> 
-                            <span class="tag">Dspace</span><span class="tag">MATLAB</span> 
-                            <span class="tag">Git</span> 
-                        </div> 
-                    </div> 
-                </div> 
- 
-                <div class="card"> 
-                    <div class="skills-category"> 
-                        <h4>Methodologies & Concepts</h4> 
-                        <div class="tag-container"> 
-                            <span class="tag">Model-Based Design</span><span class="tag">Agile</span> 
-                            <span class="tag">Gherkins</span><span class="tag">Test Case Design</span> 
-                            <span class="tag">ECU & Gateway</span><span class="tag">Autosar</span> 
-                            <span class="tag">Embedded Systems</span><span class="tag">HIL Testing</span> 
-                        </div> 
-                    </div> 
-                    <div class="skills-category"> 
-                        <h4>Soft Skills</h4> 
-                        <div class="tag-container"> 
-                            <span class="tag">Communication</span><span class="tag">Collaboration</span> 
-                            <span class="tag">Analytical Thinking</span><span class="tag">Problem-Solving</span> 
-                        </div> 
-                    </div> 
-                </div> 
-            </div> 
-        </section> 
- 
-        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
- 
-        <!-- PROJECTS SECTION --> 
-        <section id="projects"> 
-            <h2 class="section-title">Academic & Engineering Projects</h2> 
-            <div class="grid-layout"> 
-                 
-                <div class="card"> 
-                    <h3 style="margin-bottom: 0.5rem;">Gym Equipment Electricity Generation System</h3> 
-                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
-                        Developed a system utilizing piezoelectric sensors and microcontrollers to convert gym equipment movements into usable electricity, showcasing principles of energy harvesting and sustainable technology. 
-                    </p> 
-                </div> 
- 
-                <div class="card"> 
-                    <h3 style="margin-bottom: 0.5rem;">IoT-based Smart Cart</h3> 
-                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
-                        Designed and implemented an Internet of Things (IoT)-based smart shopping cart for enhanced shopping and automated checkout, integrating RFID, weight sensors, and a custom mobile application for real-time inventory and billing. 
-                    </p> 
-                </div> 
- 
-                <div class="card"> 
-                    <h3 style="margin-bottom: 0.5rem;">1-bit Full Adder using GDI Technique</h3> 
-                    <p style="color: var(--text-muted); font-size: 0.95rem;"> 
-                        Implemented a 1-bit full adder using the Gate Diffusion Input (GDI) technique, showcasing expertise in efficient logic design, power optimization, and circuit simulation. 
-                    </p> 
-                </div> 
- 
-            </div> 
-        </section> 
- 
-        <hr style="border-color: var(--border-color); max-width: 1100px; margin: 0 auto;"> 
- 
-        <!-- EDUCATION & CERTIFICATIONS SECTION --> 
-        <section id="education" style="padding-bottom: 6rem;"> 
-            <h2 class="section-title">Education & Credentials</h2> 
-            <div class="grid-layout"> 
-                <div class="card"> 
-                    <span style="color: var(--accent-color); font-weight: 600;">2020 - 2024</span> 
-                    <h3 style="margin: 0.3rem 0;">B.Tech in Electronics & Communication</h3> 
-                    <p style="color: var(--text-muted);">Chandigarh University, Punjab<br><strong>CGPA: 8.30</strong></p> 
-                </div> 
- 
-                <div class="card"> 
-                    <span style="color: var(--accent-color); font-weight: 600;">Class of 2019</span> 
-                    <h3 style="margin: 0.3rem 0;">12th Standard (PCM)</h3> 
-                    <p style="color: var(--text-muted);">Jehlum Education Trust, Jammu & Kashmir<br><strong>Percentage: 84%</strong></p> 
-                </div> 
- 
-                <div class="card" style="display: flex; flex-direction: column; justify-content: center; border-color: rgba(56, 189, 248, 0.4);"> 
-                    <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">Certifications</h3> 
-                    <p style="font-weight: 600;">Genesis Training Certification</p> 
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">KPIT Technologies • May 2024</p> 
-                </div> 
-            </div> 
-        </section> 
-    </main> 
- 
-    <footer> 
-        <p>&copy; 2026 Roonak Yaqoob. Built with precision for the Automotive Domain.</p> 
-    </footer> 
- 
-</body> 
-</html> 
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roonak Yaqoob | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: lightpink;
+            --card-bg: rgba(255, 255, 255, 0.5);
+            --accent-color: #e53e3e;
+            --text-color: #1a202c;
+            --text-muted: #4a5568;
+        }
+
+        /* Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #020617;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOutSplash 1s ease-in-out 3s forwards;
+        }
+
+        .splash-sun {
+            position: absolute;
+            font-size: 5rem;
+            animation: brightenSun 3s ease-in forwards;
+            z-index: 1;
+        }
+
+        .splash-cloud {
+            position: absolute;
+            filter: brightness(0.2) drop-shadow(0 10px 15px rgba(0,0,0,0.9));
+            z-index: 2;
+        }
+
+        .splash-cloud.c1 { animation: cloudFromLeft 3s ease-in-out forwards; font-size: 10rem; }
+        .splash-cloud.c2 { animation: cloudFromRight 3s ease-in-out forwards; font-size: 10rem; }
+        .splash-cloud.c3 { animation: cloudFromTop 3s ease-in-out forwards; font-size: 10rem; }
+        .splash-cloud.c4 { animation: cloudFromBottom 3s ease-in-out forwards; font-size: 10rem; }
+        .splash-cloud.c5 { animation: cloudFromTopLeft 3s ease-in-out forwards; font-size: 10rem; }
+        .splash-cloud.c6 { animation: cloudFromBottomRight 3s ease-in-out forwards; font-size: 10rem; }
+
+        @keyframes cloudFromLeft {
+            0% { transform: translate(-100vw, 0) scale(1); opacity: 1; }
+            50% { transform: translate(-20px, 0) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+        @keyframes cloudFromRight {
+            0% { transform: translate(100vw, 0) scale(1); opacity: 1; }
+            50% { transform: translate(20px, 0) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+        @keyframes cloudFromTop {
+            0% { transform: translate(0, -100vh) scale(1); opacity: 1; }
+            50% { transform: translate(0, -20px) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+        @keyframes cloudFromBottom {
+            0% { transform: translate(0, 100vh) scale(1); opacity: 1; }
+            50% { transform: translate(0, 20px) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+        @keyframes cloudFromTopLeft {
+            0% { transform: translate(-100vw, -100vh) scale(1); opacity: 1; }
+            50% { transform: translate(-20px, -20px) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+        @keyframes cloudFromBottomRight {
+            0% { transform: translate(100vw, 100vh) scale(1); opacity: 1; }
+            50% { transform: translate(20px, 20px) scale(1.5); opacity: 1; }
+            100% { transform: translate(0, 0) scale(20); opacity: 1; }
+        }
+
+        @keyframes brightenSun {
+            0% {
+                transform: scale(0.5);
+                filter: brightness(0.2) drop-shadow(0 0 0px #fbbf24);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(5);
+                filter: brightness(2) drop-shadow(0 0 200px #fde047);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOutSplash {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: url('https://cdn-icons-png.flaticon.com/512/869/869869.png'), auto; /* Sun cursor */
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 182, 193, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease forwards 0.3s;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease forwards 0.6s;
+            opacity: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 2rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Ensure content is above the snow/snowmen */
+        .hero-content,
+        section > *,
+        footer > * {
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* Experience & Education */
+        .icon-box {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Hobbies (with Images) */
+        .hobby-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .hobby-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hobby-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .hobby-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .hobby-card:hover .hobby-overlay {
+            opacity: 1;
+        }
+
+        .hobby-overlay h3 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        /* Food List styling */
+        .food-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .food-tag {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        /* Strengths list */
+        .strength-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .strength-item i {
+            color: #10b981;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer / Closing Note */
+        footer {
+            background: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Kept simple for raw HTML/CSS */
+            .hero-content h1 { font-size: 2.5rem; }
+            section { padding: 4rem 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-sun">☀️</div>
+        <div class="splash-cloud c1">☁️</div>
+        <div class="splash-cloud c2">☁️</div>
+        <div class="splash-cloud c3">☁️</div>
+        <div class="splash-cloud c4">☁️</div>
+        <div class="splash-cloud c5">☁️</div>
+        <div class="splash-cloud c6">☁️</div>
+    </div>
+
+    <nav>
+        <div class="logo">RY.</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#hobbies">Interests</a></li>
+            <li><a href="#strengths">Strengths</a></li>
+        </ul>
+    </nav>
+
+    <header id="about">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Roonak Yaqoob</span> 👋</h1>
+            <p>A passionate and dedicated <strong>Software Engineer</strong> currently building advanced tech solutions at KPIT Technologies. ECE Graduate from Chandigarh University. Driven by curiosity and a problem-solving mindset 🚀.</p>
+            <a href="#experience" class="btn">See My Work 👇</a>
+        </div>
+    </header>
+
+    <section id="experience">
+        <h2 class="section-title">Journey & Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Software Engineer</h3>
+                <div class="company">KPIT Technologies</div>
+                <p>Contributing to cutting-edge automotive and software development projects. Focusing heavily on complex problem-solving, diagnostics, and continuous integration of advanced technological features.</p>
+            </div>
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>B.E. Electronics & Communication</h3>
+                <div class="company">Chandigarh University</div>
+                <p>Gained a strong core foundation in hardware engineering, logic circuits, and signaling, which perfectly transitioned into my career in advanced software and automotive technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies">
+        <h2 class="section-title">Adventurous Hobbies 🏎️</h2>
+        <div class="grid">
+            <div class="hobby-card">
+                <img src="https://picsum.photos/500/300?random=1" alt="Go-karting">
+                <div class="hobby-overlay">
+                    <h3>Go-karting 🏁</h3>
+                </div>
+            </div>
+            <div class="hobby-card">
+                <img src="https://picsum.photos/500/300?random=2" alt="Bowling 🎳">
+                <div class="hobby-overlay">
+                    <h3>Bowling 🎳</h3>
+                </div>
+            </div>
+            <div class="hobby-card">
+                <img src="https://picsum.photos/500/300?random=3" alt="Kayaking">
+                <div class="hobby-overlay">
+                    <h3>Kayaking 🛶</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="food" style="text-align: center;">
+        <h2 class="section-title">For the Love of Food 🍛</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">"Food is not just about eating for me, it's about experiencing different cultures and flavors."</p>
+        <div class="food-list">
+            <span class="food-tag">Biryani 🍗</span>
+            <span class="food-tag">Butter Chicken 🥘</span>
+            <span class="food-tag">Pizza 🍕</span>
+            <span class="food-tag">Momos 🥟</span>
+            <span class="food-tag">Kashmiri Wazwan 🍖</span>
+        </div>
+    </section>
+
+    <section id="strengths">
+        <h2 class="section-title">My Strengths</h2>
+        <div style="max-width: 700px; margin: 0 auto;">
+            <div class="strength-item">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Strong analytical and problem-solving skills</span>
+            </div>
+            <div class="strength-item">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Quick learner with a growth mindset</span>
+            </div>
+            <div class="strength-item">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Passionate about technology and innovation</span>
+            </div>
+            <div class="strength-item">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Good team player with effective communication skills</span>
+            </div>
+            <div class="strength-item">
+                <i class="fa-solid fa-square-check"></i>
+                <span>Dedicated and hardworking individual</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Let's Keep Moving Forward ✨</h2>
+        <p>I strive to continuously grow both personally and professionally. I believe in pushing my limits, learning new skills, and making a positive impact in everything I do.</p>
+        <p style="font-size: 0.9rem; color: #475569;">&copy; 2026 Roonak Yaqoob. Built with passion.</p>
+    </footer>
+
+    <!-- Snow Effect -->
+    <style>
+        /* Snow Effect */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Flying Snowball */
+        .flying-snowball {
+            position: fixed;
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #d1d5db);
+            border-radius: 50%;
+            box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* 3D Side Snowmen */
+        .threejs-snowman {
+            position: fixed;
+            bottom: -300px;
+            z-index: 5;
+            width: 200px;
+            height: 300px;
+            transition: bottom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        
+        .threejs-snowman.show {
+            bottom: 30px;
+        }
+        
+        .left-snowman {
+            left: 30px;
+            animation: bounceLeft 3s infinite ease-in-out;
+        }
+        
+        .right-snowman {
+            right: 30px;
+            animation: bounceRight 3s infinite ease-in-out;
+        }
+
+        @keyframes bounceLeft {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        @keyframes bounceRight {
+            0%, 100% { transform: translateY(0) rotate(2deg); }
+            50% { transform: translateY(-15px) rotate(-2deg); }
+        }
+
+        @media (max-width: 1200px) {
+            .threejs-snowman { transform: scale(0.6); transform-origin: bottom center; }
+            .left-snowman { left: 10px; }
+            .right-snowman { right: 10px; }
+        }
+        @media (max-width: 768px) {
+            .threejs-snowman { display: none; }
+        }
+    </style>
+    <script>
+        // Snow Effect Script
+        document.addEventListener("DOMContentLoaded", () => {
+            const snowContainer = document.createElement("div");
+            snowContainer.classList.add("snow");
+            document.body.appendChild(snowContainer);
+
+            for (let i = 0; i < 100; i++) {
+                const snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                snowflake.style.width = snowflake.style.height = `${Math.random() * 5 + 2}px`;
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                snowContainer.appendChild(snowflake);
+            }
+        });
+
+        // Restore Food Section to Original State
+        document.addEventListener("DOMContentLoaded", () => {
+            const foodList = document.querySelector("#food .food-list");
+            foodList.innerHTML = `
+                <span class="food-tag">Biryani 🍗</span>
+                <span class="food-tag">Butter Chicken 🥘</span>
+                <span class="food-tag">Pizza 🍕</span>
+                <span class="food-tag">Momos 🥟</span>
+                <span class="food-tag">Kashmiri Wazwan 🍖</span>
+            `;
+        });
+
+        // Use constant images for activities
+        const hobbies = [
+            { title: "Go-karting 🏁", image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=500" },
+            { title: "Bowling 🎳", image: "https://plus.unsplash.com/premium_photo-1679654236447-90f5b9a885e1?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+            { title: "Kayaking 🛶", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=500" }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const hobbyGrid = document.querySelector("#hobbies .grid");
+            hobbyGrid.innerHTML = ""; // Clear existing content
+
+            hobbies.forEach(hobby => {
+                const hobbyCard = document.createElement("div");
+                hobbyCard.classList.add("hobby-card");
+
+                hobbyCard.innerHTML = `
+                    <img src="${hobby.image}" alt="${hobby.title}">
+                    <div class="hobby-overlay">
+                        <h3>${hobby.title}</h3>
+                    </div>
+                `;
+
+                hobbyGrid.appendChild(hobbyCard);
+            });
+        });
+
+        // Show side snowmen on scroll
+        document.addEventListener("scroll", () => {
+            const snowmen = document.querySelectorAll('.threejs-snowman');
+            if (window.scrollY > 200) {
+                snowmen.forEach(s => s.classList.add('show'));
+            } else {
+                snowmen.forEach(s => s.classList.remove('show'));
+            }
+        });
+
+        const snowmenInstances = {};
+
+        // Initialize Three.js Snowmen
+        function create3DSnowman(containerId) {
+            const container = document.getElementById(containerId);
+            const width = 200;
+            const height = 300;
+
+            const scene = new THREE.Scene();
+            
+            // Transparent background
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+            camera.position.z = 8;
+            camera.position.y = 1;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            dirLight.position.set(5, 5, 5);
+            scene.add(dirLight);
+
+            // Snowman Group
+            const snowmanGroup = new THREE.Group();
+
+            // Materials
+            const snowMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+            const coalMaterial = new THREE.MeshLambertMaterial({ color: 0x222222 });
+            const carrotMaterial = new THREE.MeshLambertMaterial({ color: 0xff8800 });
+
+            // Bottom sphere
+            const bottomGeo = new THREE.SphereGeometry(1.2, 32, 32);
+            const bottom = new THREE.Mesh(bottomGeo, snowMaterial);
+            bottom.position.y = -1.2;
+            snowmanGroup.add(bottom);
+
+            // Middle sphere
+            const midGeo = new THREE.SphereGeometry(0.9, 32, 32);
+            const middle = new THREE.Mesh(midGeo, snowMaterial);
+            middle.position.y = 0.3;
+            snowmanGroup.add(middle);
+
+            // Head sphere
+            const headGeo = new THREE.SphereGeometry(0.65, 32, 32);
+            const head = new THREE.Mesh(headGeo, snowMaterial);
+            head.position.y = 1.5;
+            snowmanGroup.add(head);
+
+            // Eyes
+            const eyeGeo = new THREE.SphereGeometry(0.08, 16, 16);
+            const leftEye = new THREE.Mesh(eyeGeo, coalMaterial);
+            leftEye.position.set(-0.25, 1.7, 0.55);
+            snowmanGroup.add(leftEye);
+
+            const rightEye = new THREE.Mesh(eyeGeo, coalMaterial);
+            rightEye.position.set(0.25, 1.7, 0.55);
+            snowmanGroup.add(rightEye);
+
+            // Nose
+            const noseGeo = new THREE.ConeGeometry(0.1, 0.5, 16);
+            const nose = new THREE.Mesh(noseGeo, carrotMaterial);
+            nose.position.set(0, 1.55, 0.7);
+            nose.rotation.x = Math.PI / 2;
+            snowmanGroup.add(nose);
+
+            // Buttons
+            const buttonGeo = new THREE.SphereGeometry(0.1, 16, 16);
+            const btn1 = new THREE.Mesh(buttonGeo, coalMaterial);
+            btn1.position.set(0, 0.7, 0.82);
+            snowmanGroup.add(btn1);
+            
+            const btn2 = new THREE.Mesh(buttonGeo, coalMaterial);
+            btn2.position.set(0, 0.3, 0.9);
+            snowmanGroup.add(btn2);
+            
+            const btn3 = new THREE.Mesh(buttonGeo, coalMaterial);
+            btn3.position.set(0, -0.1, 0.82);
+            snowmanGroup.add(btn3);
+
+            scene.add(snowmanGroup);
+
+            // Animation Loop
+            let time = 0;
+            let throwTime = 0;
+            let isThrowing = false;
+            const isLeft = containerId === 'snowman-left';
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                time += 0.02;
+                
+                let lean = 0;
+                if (isThrowing) {
+                    throwTime += 0.15;
+                    lean = Math.sin(throwTime) * 0.6; 
+                    if (throwTime > Math.PI) {
+                        isThrowing = false;
+                        throwTime = 0;
+                    }
+                }
+                
+                snowmanGroup.rotation.y = Math.sin(time) * 0.2 + (isLeft ? 0.3 : -0.3);
+                snowmanGroup.rotation.z = isLeft ? -lean : lean;
+                
+                renderer.render(scene, camera);
+            }
+            animate();
+            
+            snowmenInstances[containerId] = {
+                triggerThrow: () => { isThrowing = true; throwTime = 0; }
+            };
+        }
+
+        // Snowball Fight Logic
+        function throwSnowball(fromLeft) {
+            const leftContainer = document.getElementById('snowman-left');
+            if (!leftContainer || !leftContainer.classList.contains('show')) return; 
+
+            if (fromLeft) {
+                snowmenInstances['snowman-left']?.triggerThrow();
+            } else {
+                snowmenInstances['snowman-right']?.triggerThrow();
+            }
+
+            const snowball = document.createElement('div');
+            snowball.classList.add('flying-snowball');
+            document.body.appendChild(snowball);
+
+            const startX = fromLeft ? 130 : window.innerWidth - 130;
+            const endX = fromLeft ? window.innerWidth - 130 : 130;
+            const startY = window.innerHeight - 120; 
+
+            snowball.style.left = `${startX - 12}px`; 
+            snowball.style.top = `${startY - 12}px`;
+
+            snowball.animate([
+                { transform: `translate(0px, 0px) scale(1)`, easing: 'ease-out' },
+                { transform: `translate(${(endX - startX) / 2}px, -200px) scale(1.5)`, offset: 0.5, easing: 'ease-in' },
+                { transform: `translate(${endX - startX}px, 50px) scale(1)` }
+            ], {
+                duration: 800
+            }).onfinish = () => {
+                snowball.remove();
+                createSplat(endX, startY + 50);
+            };
+        }
+
+        function createSplat(x, y) {
+            const splat = document.createElement('div');
+            splat.style.position = 'fixed';
+            splat.style.left = `${x - 20}px`;
+            splat.style.top = `${y - 20}px`;
+            splat.style.width = '40px';
+            splat.style.height = '40px';
+            splat.style.background = 'white';
+            splat.style.borderRadius = '50%';
+            splat.style.opacity = '0.8';
+            splat.style.pointerEvents = 'none';
+            splat.style.zIndex = '100';
+            document.body.appendChild(splat);
+
+            splat.animate([
+                { transform: 'scale(1)', opacity: 0.8 },
+                { transform: 'scale(2)', opacity: 0 }
+            ], {
+                duration: 300,
+                easing: 'ease-out'
+            }).onfinish = () => splat.remove();
+        }
+
+        // Delay initialization to ensure the DOM is ready
+        window.addEventListener('load', () => {
+            create3DSnowman('snowman-left');
+            create3DSnowman('snowman-right');
+            
+            // Start the snowball fight
+            setInterval(() => {
+                const fromLeft = Math.random() > 0.5;
+                throwSnowball(fromLeft);
+            }, 2000);
+        });
+
+    </script>
+
+    <!-- 3D Side Snowmen -->
+    <div id="snowman-left" class="threejs-snowman left-snowman"></div>
+    <div id="snowman-right" class="threejs-snowman right-snowman"></div>
+</body>
+</html>
